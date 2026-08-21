@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meeting Summarizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand-mark">MS</div>
+      <div><p class="eyebrow">MEETING INTELLIGENCE</p><h1>Meeting Summarizer</h1></div>
+      <p class="header-note">From spoken words<br>to next moves.</p>
+    </header>
+
+    <section class="upload-panel" aria-labelledby="upload-title">
+      <div><p class="eyebrow">01 / INPUT</p><h2 id="upload-title">Bring in a recording.</h2><p class="muted">Upload a meeting audio file and get a transcript plus an evidence-based action record.</p></div>
+      <form id="upload-form">
+        <label class="dropzone" for="audio-file"><span class="drop-icon">+</span><span id="file-label">Choose meeting recording</span><small>WAV, MP3, M4A, MP4, WebM or OGG · up to 100 MB</small></label>
+        <input id="audio-file" name="file" type="file" accept="audio/wav,audio/x-wav,audio/mpeg,audio/mp3,audio/mp4,audio/x-m4a,video/mp4,application/mp4,audio/webm,audio/ogg" required>
+        <button class="process-button" type="submit"><span>Process meeting</span><span aria-hidden="true">&#8594;</span></button>
+      </form>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="result-heading"><div><p class="eyebrow">02 / MEETING RECORD</p><h2 id="result-title">Your meeting, clarified.</h2></div><span id="meeting-id" class="mono"></span></div>
+      <div class="summary-grid">
+        <article class="feature-card"><p class="eyebrow">EXECUTIVE SUMMARY</p><p id="executive-summary" class="large-copy"></p></article>
+        <article class="feature-card accent"><p class="eyebrow">KEY DECISIONS</p><ul id="decisions"></ul></article>
+      </div>
+      <div class="content-grid">
+        <article class="section-block transcript-block"><div class="section-title"><p class="eyebrow">FULL TRANSCRIPT</p><span class="mono">SOURCE TEXT</span></div><pre id="transcript"></pre></article>
+        <div class="side-stack">
+          <article class="section-block"><p class="eyebrow">DISCUSSION POINTS</p><ul id="key-points"></ul></article>
+          <article class="section-block action-block"><div class="section-title"><p class="eyebrow">ACTION ITEMS</p><span class="mono">NEXT MOVES</span></div><div class="table-wrap"><table><thead><tr><th>Task</th><th>Owner</th><th>Deadline</th></tr></thead><tbody id="action-items"></tbody></table></div></article>
+          <article class="split-block"><div><p class="eyebrow">RISKS / BLOCKERS</p><ul id="risks"></ul></div><div><p class="eyebrow">FOLLOW-UPS</p><ul id="follow-ups"></ul></div></article>
+        </div>
+      </div>
+    </section>
+    <footer><span>LOCAL PROCESSING WORKSPACE</span><span>GEMINI-POWERED ANALYSIS</span></footer>
+  </main>
+  <script src="/script.js"></script>
+</body>
+</html>

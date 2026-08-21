@@ -1,0 +1,14 @@
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.DS_Store
+
+# Generated runtime data (keep directory placeholders tracked)
+data/uploads/*
+data/transcripts/*
+data/summaries/*
+!data/uploads/.gitkeep
+!data/transcripts/.gitkeep
+!data/summaries/.gitkeep
